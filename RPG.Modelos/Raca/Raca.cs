@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RPG.Modelos.Raça
+namespace RPG.Modelos.Raca
 {
-    class Racas
+   public class Raca
     {
     }
 }
