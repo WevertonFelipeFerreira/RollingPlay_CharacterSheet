@@ -9,7 +9,8 @@ namespace RPG.Modelos
 {
     public class Heroi
     {
-        public int HeroiLevel = 1;
+        private int _heroiLevel = 1;
+        public int HeroiLevel { get { return _heroiLevel; } set {} }
         public Heroi(string nomeHeroi)
         {
             HeroiNome = nomeHeroi;
@@ -28,24 +29,22 @@ namespace RPG.Modelos
         {
 
         }
-        private int _PontosDeExperiencia = 0;
-        public int PontosDeExperiencia 
-        { 
-            get 
+        public int _pontosDeExperiencia;
+        public void AdicionarPontosDeExperiencia(int pontosXP) 
+        {   
+            if (pontosXP <= 0) 
             {
-                return _PontosDeExperiencia;
-            } 
-            set 
+                throw new PontosDeExperienciaInvalidosException("Os pontos de experiencia devem ser maior que 0", nameof(pontosXP));
+            }
+            while (pontosXP>=100)
             {
-                if (value < 0)
-                {
-                    throw new PontosDeExperienciaInvalidosException("Pontos de experiencia invalidos!", nameof(value));
-                }
-                else 
-                {
-                    _PontosDeExperiencia = PontosDeExperiencia;
-                }
-            } 
+                _pontosDeExperiencia += 100;
+                _heroiLevel++;
+                Console.WriteLine(HeroiNome + " subiu para o nivel " + HeroiLevel);
+                pontosXP -= 100;
+            }
+            Console.WriteLine("Total de XP obtidos: " + _pontosDeExperiencia);
+            Console.WriteLine("Héroi: "+HeroiNome+" Level: "+HeroiLevel);
         }
     }
 }

@@ -17,7 +17,7 @@ namespace RPG
             {
                 Heroi heroi1 = new Heroi("Farendor");
                 heroi1.HeroiClasse("Clérigo");
-                heroi1.PontosDeExperiencia = 4;
+                heroi1.AdicionarPontosDeExperiencia(200);
 
 
             }
